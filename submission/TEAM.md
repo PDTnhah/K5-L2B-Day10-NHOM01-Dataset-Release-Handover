@@ -1,7 +1,7 @@
-# Nhóm <<XX>>
+# Nhóm <1>
 
-- Seed luyện tập: <<số>>
-- Repo: <<URL>>
+- Seed luyện tập: <1007>
+- Repo: <https://github.com/PDTnhah/K5-L2B-Day10-NHOM01-Dataset-Release-Handover>
 
 | Họ và tên | MSHV | Tài khoản GitHub | Phần chính |
 |---|---|---|---|
