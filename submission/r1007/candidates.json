@@ -1,84 +1,445 @@
 {
+ "delivery": "runs\\r1007\\delivery",
+ "params": {
+  "margin_px": 2,
+  "match_iou": 0.5,
+  "same_class_bonus": 0.15,
+  "swap_iou": 0.6,
+  "swap_fill": 0.4,
+  "drift_cov": 0.92,
+  "drift_min_out_px": 40,
+  "drift_min_box": 0.003,
+  "missing_min_seg": 0.004,
+  "missing_cov": 0.6,
+  "merge_excl": 0.2,
+  "merge_max_cov": 0.97,
+  "max_per_type": 0
+ },
+ "stats": {
+  "images": 250,
+  "pairs_checked": 23090,
+  "candidates": 10,
+  "by_type": {
+   "bbox_drift": 2,
+   "class_swap|category_swap": 4,
+   "instance_merge": 1,
+   "missing_box": 3
+  },
+  "skipped_rule_images": 4
+ },
  "candidates": [
   {
-   "type": "missing_box",
-   "target": "000000001353",
-   "reason": "segment panoptic lớp 'train' diện tích 19447 px không có box detection nào phủ được"
-  },
-  {
-   "type": "missing_box",
-   "target": "000000001818",
-   "reason": "segment panoptic lớp 'zebra' diện tích 120106 px không có box detection nào phủ được"
-  },
-  {
-   "type": "instance_merge",
-   "target": "000000002157",
-   "reason": "segment panoptic lớp 'wine glass' phủ trọn 2 box detection cùng lớp và các box đó không chồng lên nhau; có thể hai vật cùng lớp bị gộp làm một"
-  },
-  {
-   "type": "category_swap",
-   "target": "000000003845",
-   "reason": "box detection ghi lớp 'carrot' nhưng segment panoptic ghi 'fork' (IoU bbox 0.98, 100% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
-  },
-  {
-   "type": "category_swap",
-   "target": "000000005586",
-   "reason": "box detection ghi lớp 'surfboard' nhưng segment panoptic ghi 'person' (IoU bbox 0.90, 100% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
-  },
-  {
-   "type": "category_swap",
-   "target": "000000006723",
-   "reason": "box detection ghi lớp 'truck' nhưng segment panoptic ghi 'bus' (IoU bbox 0.91, 99% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
-  },
-  {
-   "type": "category_swap",
-   "target": "000000009590",
-   "reason": "box detection ghi lớp 'cup' nhưng segment panoptic ghi 'bowl' (IoU bbox 0.92, 100% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
-  },
-  {
-   "type": "category_swap",
-   "target": "000000009914",
-   "reason": "box detection ghi lớp 'hot dog' nhưng segment panoptic ghi 'sandwich' (IoU bbox 0.81, 97% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
-  },
-  {
-   "type": "missing_box",
-   "target": "000000009914",
-   "reason": "segment panoptic lớp 'bowl' diện tích 33838 px không có box detection nào phủ được"
-  },
-  {
-   "type": "category_swap",
-   "target": "000000012639",
-   "reason": "box detection ghi lớp '80' nhưng segment panoptic ghi 'person' (IoU bbox 0.97, 100% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
-  },
-  {
-   "type": "category_swap",
-   "target": "000000013659",
-   "reason": "box detection ghi lớp 'tv' nhưng segment panoptic ghi 'laptop' (IoU bbox 0.99, 100% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
-  },
-  {
-   "type": "missing_box",
-   "target": "000000017379",
-   "reason": "segment panoptic lớp 'sink' diện tích 11161 px không có box detection nào phủ được"
-  },
-  {
-   "type": "category_swap",
-   "target": "000000018380",
-   "reason": "box detection ghi lớp 'cup' nhưng segment panoptic ghi 'wine glass' (IoU bbox 0.87, 100% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
-  },
-  {
-   "type": "category_swap",
-   "target": "000000020553",
-   "reason": "box detection ghi lớp 'bottle' nhưng segment panoptic ghi 'vase' (IoU bbox 0.77, 99% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
-  },
-  {
+   "image": "000000021167",
    "type": "bbox_drift",
-   "target": "000000021167",
-   "reason": "box detection lớp 'wine glass' chồm lên segment cùng lớp (IoU bbox 0.51) nhưng chỉ chiếm 51% pixel của vật; box có thể lệch khỏi vật"
+   "score": 0.438,
+   "width": 426,
+   "height": 640,
+   "signals": [
+    {
+     "type": "bbox_drift",
+     "score": 0.438,
+     "why": "44% pixel segment wine glass (622 px) nằm ngoài box; IoU 0.51",
+     "boxes": [
+      {
+       "line": 1,
+       "class": "wine glass",
+       "xyxy": [
+        252.7,
+        313.7,
+        299.8,
+        382.1
+       ]
+      }
+     ],
+     "segments": [
+      {
+       "id": 7632255,
+       "class": "wine glass",
+       "pixels": 1419,
+       "xyxy": [
+        260,
+        297,
+        314,
+        378
+       ]
+      }
+     ],
+     "cov": 0.562,
+     "iou": 0.508
+    }
+   ]
   },
   {
-   "type": "category_swap",
-   "target": "000000022479",
-   "reason": "box detection ghi lớp 'couch' nhưng segment panoptic ghi 'bench' (IoU bbox 0.97, 100% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
+   "image": "000000007278",
+   "type": "bbox_drift",
+   "score": 0.16,
+   "width": 640,
+   "height": 482,
+   "signals": [
+    {
+     "type": "bbox_drift",
+     "score": 0.16,
+     "why": "16% pixel segment person (924 px) nằm ngoài box; IoU 0.64",
+     "boxes": [
+      {
+       "line": 0,
+       "class": "person",
+       "xyxy": [
+        184.0,
+        74.5,
+        288.3,
+        155.6
+       ]
+      }
+     ],
+     "segments": [
+      {
+       "id": 6973051,
+       "class": "person",
+       "pixels": 5792,
+       "xyxy": [
+        190,
+        59,
+        312,
+        154
+       ]
+      }
+     ],
+     "cov": 0.84,
+     "iou": 0.639
+    }
+   ]
+  },
+  {
+   "image": "000000013659",
+   "type": "class_swap|category_swap",
+   "score": 0.991,
+   "width": 640,
+   "height": 480,
+   "signals": [
+    {
+     "type": "class_swap|category_swap",
+     "score": 0.991,
+     "why": "cùng vị trí (IoU 0.99) nhưng detection ghi 'tv', panoptic ghi 'laptop'",
+     "boxes": [
+      {
+       "line": 14,
+       "class": "tv",
+       "xyxy": [
+        194.9,
+        78.9,
+        235.0,
+        115.9
+       ]
+      }
+     ],
+     "segments": [
+      {
+       "id": 3618356,
+       "class": "laptop",
+       "pixels": 1398,
+       "xyxy": [
+        195,
+        79,
+        235,
+        116
+       ]
+      }
+     ],
+     "cov": 1.0
+    }
+   ]
+  },
+  {
+   "image": "000000003845",
+   "type": "class_swap|category_swap",
+   "score": 0.976,
+   "width": 500,
+   "height": 375,
+   "signals": [
+    {
+     "type": "class_swap|category_swap",
+     "score": 0.976,
+     "why": "cùng vị trí (IoU 0.98) nhưng detection ghi 'carrot', panoptic ghi 'fork'",
+     "boxes": [
+      {
+       "line": 9,
+       "class": "carrot",
+       "xyxy": [
+        108.5,
+        85.6,
+        162.1,
+        122.9
+       ]
+      }
+     ],
+     "segments": [
+      {
+       "id": 403085,
+       "class": "fork",
+       "pixels": 1234,
+       "xyxy": [
+        109,
+        86,
+        162,
+        123
+       ]
+      }
+     ],
+     "cov": 1.0
+    }
+   ]
+  },
+  {
+   "image": "000000022479",
+   "type": "class_swap|category_swap",
+   "score": 0.974,
+   "width": 640,
+   "height": 605,
+   "signals": [
+    {
+     "type": "class_swap|category_swap",
+     "score": 0.974,
+     "why": "cùng vị trí (IoU 0.97) nhưng detection ghi 'couch', panoptic ghi 'bench'",
+     "boxes": [
+      {
+       "line": 1,
+       "class": "couch",
+       "xyxy": [
+        175.3,
+        435.4,
+        252.9,
+        461.1
+       ]
+      }
+     ],
+     "segments": [
+      {
+       "id": 3620924,
+       "class": "bench",
+       "pixels": 1507,
+       "xyxy": [
+        175,
+        435,
+        253,
+        461
+       ]
+      }
+     ],
+     "cov": 1.0
+    }
+   ]
+  },
+  {
+   "image": "000000005586",
+   "type": "class_swap|category_swap",
+   "score": 0.903,
+   "width": 320,
+   "height": 240,
+   "signals": [
+    {
+     "type": "class_swap|category_swap",
+     "score": 0.903,
+     "why": "cùng vị trí (IoU 0.90) nhưng detection ghi 'surfboard', panoptic ghi 'person'",
+     "boxes": [
+      {
+       "line": 11,
+       "class": "surfboard",
+       "xyxy": [
+        291.5,
+        62.1,
+        301.7,
+        104.3
+       ]
+      }
+     ],
+     "segments": [
+      {
+       "id": 4021656,
+       "class": "person",
+       "pixels": 256,
+       "xyxy": [
+        292,
+        63,
+        302,
+        104
+       ]
+      }
+     ],
+     "cov": 1.0
+    }
+   ]
+  },
+  {
+   "image": "000000017379",
+   "type": "instance_merge",
+   "score": 0.828,
+   "width": 478,
+   "height": 640,
+   "signals": [
+    {
+     "type": "instance_merge",
+     "score": 0.828,
+     "why": "segment sink phủ 2 box cùng lớp; 83% box thứ hai chỉ có pixel của segment này",
+     "boxes": [
+      {
+       "line": 2,
+       "class": "sink",
+       "xyxy": [
+        4.2,
+        590.6,
+        190.4,
+        640.0
+       ]
+      },
+      {
+       "line": 1,
+       "class": "sink",
+       "xyxy": [
+        379.7,
+        522.1,
+        478.0,
+        575.3
+       ]
+      }
+     ],
+     "segments": [
+      {
+       "id": 9347232,
+       "class": "sink",
+       "pixels": 11161,
+       "xyxy": [
+        4,
+        522,
+        478,
+        640
+       ]
+      }
+     ],
+     "cov_best": 0.612,
+     "cov_union": 1.0
+    }
+   ]
+  },
+  {
+   "image": "000000001818",
+   "type": "missing_box",
+   "score": 0.4416,
+   "width": 640,
+   "height": 425,
+   "signals": [
+    {
+     "type": "missing_box",
+     "score": 0.4416,
+     "why": "segment zebra 120106 px (44.2% ảnh) không có box nào; box cùng lớp phủ tốt nhất 51%",
+     "boxes": [],
+     "segments": [
+      {
+       "id": 8092282,
+       "class": "zebra",
+       "pixels": 120106,
+       "xyxy": [
+        0,
+        1,
+        638,
+        425
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "image": "000000009914",
+   "type": "missing_box",
+   "score": 0.1101,
+   "width": 640,
+   "height": 480,
+   "signals": [
+    {
+     "type": "missing_box",
+     "score": 0.1101,
+     "why": "segment bowl 33838 px (11.0% ảnh) không có box nào; box cùng lớp phủ tốt nhất 0%",
+     "boxes": [],
+     "segments": [
+      {
+       "id": 2626083,
+       "class": "bowl",
+       "pixels": 33838,
+       "xyxy": [
+        2,
+        154,
+        200,
+        358
+       ]
+      }
+     ]
+    },
+    {
+     "type": "unmatched_box",
+     "score": 0.11,
+     "why": "box hot dog không ghép được segment nào (có thể drift rất xa, hoặc lệch tự nhiên)",
+     "boxes": [
+      {
+       "line": 5,
+       "class": "hot dog",
+       "xyxy": [
+        518.7,
+        185.6,
+        640.0,
+        464.4
+       ]
+      }
+     ],
+     "segments": []
+    }
+   ]
+  },
+  {
+   "image": "000000001353",
+   "type": "missing_box",
+   "score": 0.1037,
+   "width": 375,
+   "height": 500,
+   "signals": [
+    {
+     "type": "missing_box",
+     "score": 0.1037,
+     "why": "segment train 19447 px (10.4% ảnh) không có box nào; box cùng lớp phủ tốt nhất 0%",
+     "boxes": [],
+     "segments": [
+      {
+       "id": 1519251,
+       "class": "train",
+       "pixels": 19447,
+       "xyxy": [
+        66,
+        327,
+        256,
+        463
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "skipped": [
+  {
+   "image": "000000006771",
+   "why": "lỗi luật: duplicate_box"
+  },
+  {
+   "image": "000000012576",
+   "why": "lỗi luật: bbox_out_of_bounds"
+  },
+  {
+   "image": "000000012639",
+   "why": "lỗi luật: invalid_class"
+  },
+  {
+   "image": "000000021879",
+   "why": "lỗi luật: thing_overlap"
   }
  ]
 }

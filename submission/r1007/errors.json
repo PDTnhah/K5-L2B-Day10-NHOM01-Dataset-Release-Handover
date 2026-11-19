@@ -1,32 +1,36 @@
 {
  "errors": [
   {
-   "type": "missing_image",
-   "target": "000000000785"
+   "type": "bbox_drift",
+   "target": "21167"
   },
   {
-   "type": "missing_image",
-   "target": "000000021604"
-  },
-  {
-   "type": "wrong_hash",
-   "target": "000000006763"
-  },
-  {
-   "type": "invalid_class",
-   "target": "000000012639"
+   "type": "bbox_drift",
+   "target": "7278"
   },
   {
    "type": "bbox_out_of_bounds",
    "target": "000000012576"
   },
   {
-   "type": "duplicate_box",
-   "target": "000000006771"
+   "type": "class_swap",
+   "target": "13659"
   },
   {
-   "type": "scene_leak",
-   "target": "scene_278"
+   "type": "class_swap",
+   "target": "22479"
+  },
+  {
+   "type": "class_swap",
+   "target": "3845"
+  },
+  {
+   "type": "class_swap",
+   "target": "5586"
+  },
+  {
+   "type": "duplicate_box",
+   "target": "000000006771"
   },
   {
    "type": "guideline_mismatch",
@@ -37,8 +41,44 @@
    "target": "000000015956"
   },
   {
+   "type": "instance_merge",
+   "target": "17379"
+  },
+  {
+   "type": "invalid_class",
+   "target": "000000012639"
+  },
+  {
+   "type": "missing_box",
+   "target": "1353"
+  },
+  {
+   "type": "missing_box",
+   "target": "1818"
+  },
+  {
+   "type": "missing_box",
+   "target": "9914"
+  },
+  {
+   "type": "missing_image",
+   "target": "000000000785"
+  },
+  {
+   "type": "missing_image",
+   "target": "000000021604"
+  },
+  {
+   "type": "scene_leak",
+   "target": "scene_278"
+  },
+  {
    "type": "thing_overlap",
    "target": "000000021879"
+  },
+  {
+   "type": "wrong_hash",
+   "target": "000000006763"
   }
  ]
 }

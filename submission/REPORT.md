@@ -6,7 +6,8 @@
 - Ngưỡng đã chọn và cách chọn (không dùng `_private`): <<...>>
 
 ## 2. Vì sao báo hết ứng viên làm F1 giảm?
-<<Trả lời bằng số của nhóm.>>
+
+
 
 ## 3. Quyết định và lineage
 <<QC v1 a/b, kết luận, vì sao R-021 phải xem lại hoặc train lại.>>
