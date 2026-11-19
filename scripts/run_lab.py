@@ -51,4 +51,7 @@ def main() -> int:
 
 
 if __name__ == "__main__":
+    # Console Windows mặc định cp1252 không in được tiếng Việt.
+    for _stream in (sys.stdout, sys.stderr):
+        _stream.reconfigure(encoding="utf-8", errors="replace")
     raise SystemExit(main())

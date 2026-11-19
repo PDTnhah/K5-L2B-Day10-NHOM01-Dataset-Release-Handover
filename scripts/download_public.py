@@ -17,6 +17,7 @@ Images download in parallel (16 threads) with retries; the mask zip is opened on
 from __future__ import annotations
 
 import argparse
+import sys
 import json
 import time
 from concurrent.futures import ThreadPoolExecutor
@@ -282,4 +283,7 @@ def main() -> None:
 
 
 if __name__ == "__main__":
+    # Console Windows mặc định cp1252 không in được tiếng Việt.
+    for _stream in (sys.stdout, sys.stderr):
+        _stream.reconfigure(encoding="utf-8", errors="replace")
     main()

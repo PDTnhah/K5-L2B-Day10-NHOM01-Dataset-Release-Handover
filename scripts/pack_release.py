@@ -9,6 +9,7 @@ Ghi <thư mục>.zip và <thư mục>.sha256 cạnh thư mục. Cùng nội dung
 from __future__ import annotations
 
 import argparse
+import sys
 import hashlib
 import zipfile
 from pathlib import Path
@@ -48,4 +49,7 @@ def main() -> int:
 
 
 if __name__ == "__main__":
+    # Console Windows mặc định cp1252 không in được tiếng Việt.
+    for _stream in (sys.stdout, sys.stderr):
+        _stream.reconfigure(encoding="utf-8", errors="replace")
     raise SystemExit(main())
