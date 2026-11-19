@@ -197,11 +197,12 @@ Lệnh dùng để kiểm chứng từng luật (đo đặc điểm trên dữ l
 | 42 | 11 | **1.0** | 14 | |
 | 77 | 11 | **1.0** | 16 | |
 | 101 | 14 | **1.0** | 14 | |
+| 1007 `--opaque` | 12 | **1.0** | 14 | Giống cách giảng viên làm đề ẩn (xem mục 3.5) |
 | 5 (`--no-faults`, lô sạch) | **0** | **1.0** | **0** | Validator không báo lỗi luật nào ở lô sạch |
 
-Nhóm đã thử **6 seed có lỗi** + **1 lô sạch**; F1 lỗi luật đạt 1.0 ở tất cả. Số lỗi mỗi loại
-thay đổi theo seed (có loại vắng) — ví dụ seed 1007 không có `invalid_category_id` nên
-validator cũng không báo, đúng như kỳ vọng.
+Nhóm đã thử **6 seed có lỗi** + **1 lô `--opaque`** + **1 lô sạch**; F1 lỗi luật đạt 1.0 ở tất cả.
+Số lỗi mỗi loại thay đổi theo seed (có loại vắng) — ví dụ seed 1007 không có
+`invalid_category_id` nên validator cũng không báo, đúng như kỳ vọng.
 
 Ứng viên lỗi gán nhãn: 11–16 ứng viên mỗi lô (mỗi ứng viên nằm trên một ảnh khác nhau),
 lô sạch: 0 ứng viên.
@@ -236,6 +237,26 @@ sạch có cặp box–segment cùng lớp với pixfrac thấp tới 0.42 (IoU 
 của lỗi drift thật. Validator chỉ báo ứng viên khi **cả hai** điều kiện: box còn chồm
 lên vật (IoU ≥ 0.5) **và** bỏ sót nhiều pixel (pixfrac < 0.6). Vì vậy nhóm phải mở ảnh
 để quyết định, không được tin máy.
+
+### 3.5 Thử giống cách giảng viên làm đề ẩn (`--opaque`)
+
+Đề ẩn được giảng viên tạo bằng công cụ riêng, khác lô luyện tập ở: **tên ảnh đổi**
+(`000000000139` → `img_0001`), **segment id trong mask đánh số lại**, **byte ảnh bị
+sửa** (thêm segment COM nên hash khác), và **mức lỗi khác nhau**. Nhóm đã tự dựng lô
+như vậy để kiểm tra validator không vướng tên ảnh gốc:
+
+```bash
+python scripts/inject_release.py --seed 1007 --opaque --out runs/r1007_opaque
+python validator/validate.py runs/r1007_opaque/delivery --out runs/r1007_opaque/errors.json \
+    --candidates runs/r1007_opaque/candidates.json
+python scripts/score_findings.py --run runs/r1007_opaque
+```
+
+Kết quả: **F1 lỗi luật = 1.0**, 12 lỗi luật, 14 ứng viên.
+
+Kết luận: validator **không** phụ thuộc tên ảnh gốc hay số thứ tự segment id — mọi
+ngưỡng đều lấy từ kích thước ảnh thật, số pixel thật trong mask và tập `category_id`
+có thật. Đây là cơ sở để tin validator sẽ đứng vững ở đề ẩn.
 
 ### 3.4 Người đọc và giải thích được đoạn code nào
 
