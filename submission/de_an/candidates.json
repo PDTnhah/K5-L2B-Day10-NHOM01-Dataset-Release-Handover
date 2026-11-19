@@ -1,0 +1,124 @@
+{
+ "candidates": [
+  {
+   "type": "category_swap",
+   "target": "img_0006",
+   "reason": "box detection ghi lớp 'bus' nhưng segment panoptic ghi 'truck' (IoU bbox 0.90, 99% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
+  },
+  {
+   "type": "category_swap",
+   "target": "img_0028",
+   "reason": "box detection ghi lớp 'bicycle' nhưng segment panoptic ghi 'motorcycle' (IoU bbox 1.00, 100% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
+  },
+  {
+   "type": "category_swap",
+   "target": "img_0036",
+   "reason": "box detection ghi lớp 'bed' nhưng segment panoptic ghi 'couch' (IoU bbox 0.93, 100% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
+  },
+  {
+   "type": "category_swap",
+   "target": "img_0045",
+   "reason": "box detection ghi lớp 'handbag' nhưng segment panoptic ghi 'backpack' (IoU bbox 0.88, 100% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
+  },
+  {
+   "type": "bbox_drift",
+   "target": "img_0053",
+   "reason": "box detection lớp 'apple' chồm lên segment cùng lớp (IoU bbox 0.84) nhưng chỉ chiếm 47% pixel của vật; box có thể lệch khỏi vật"
+  },
+  {
+   "type": "category_swap",
+   "target": "img_0061",
+   "reason": "box detection ghi lớp 'cake' nhưng segment panoptic ghi 'donut' (IoU bbox 0.99, 100% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
+  },
+  {
+   "type": "category_swap",
+   "target": "img_0062",
+   "reason": "box detection ghi lớp 'truck' nhưng segment panoptic ghi 'car' (IoU bbox 0.95, 98% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
+  },
+  {
+   "type": "category_swap",
+   "target": "img_0062",
+   "reason": "box detection ghi lớp 'truck' nhưng segment panoptic ghi 'car' (IoU bbox 0.90, 99% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
+  },
+  {
+   "type": "category_swap",
+   "target": "img_0063",
+   "reason": "box detection ghi lớp '80' nhưng segment panoptic ghi 'bed' (IoU bbox 1.00, 100% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
+  },
+  {
+   "type": "missing_box",
+   "target": "img_0079",
+   "reason": "segment panoptic lớp 'cat' diện tích 38450 px không có box detection nào phủ được"
+  },
+  {
+   "type": "category_swap",
+   "target": "img_0086",
+   "reason": "box detection ghi lớp 'chair' nhưng segment panoptic ghi 'dining table' (IoU bbox 0.90, 100% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
+  },
+  {
+   "type": "category_swap",
+   "target": "img_0106",
+   "reason": "box detection ghi lớp 'cat' nhưng segment panoptic ghi 'dog' (IoU bbox 0.92, 100% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
+  },
+  {
+   "type": "bbox_drift",
+   "target": "img_0107",
+   "reason": "box detection lớp 'person' chồm lên segment cùng lớp (IoU bbox 0.73) nhưng chỉ chiếm 57% pixel của vật; box có thể lệch khỏi vật"
+  },
+  {
+   "type": "category_swap",
+   "target": "img_0115",
+   "reason": "box detection ghi lớp 'cup' nhưng segment panoptic ghi 'bowl' (IoU bbox 0.97, 100% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
+  },
+  {
+   "type": "category_swap",
+   "target": "img_0120",
+   "reason": "box detection ghi lớp 'backpack' nhưng segment panoptic ghi 'handbag' (IoU bbox 0.92, 100% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
+  },
+  {
+   "type": "category_swap",
+   "target": "img_0131",
+   "reason": "box detection ghi lớp 'truck' nhưng segment panoptic ghi 'car' (IoU bbox 0.69, 97% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
+  },
+  {
+   "type": "category_swap",
+   "target": "img_0145",
+   "reason": "box detection ghi lớp 'couch' nhưng segment panoptic ghi 'chair' (IoU bbox 0.97, 100% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
+  },
+  {
+   "type": "category_swap",
+   "target": "img_0146",
+   "reason": "box detection ghi lớp 'truck' nhưng segment panoptic ghi 'car' (IoU bbox 0.97, 99% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
+  },
+  {
+   "type": "instance_merge",
+   "target": "img_0163",
+   "reason": "segment panoptic lớp 'person' phủ trọn 2 box detection cùng lớp và các box đó không chồng lên nhau; có thể hai vật cùng lớp bị gộp làm một"
+  },
+  {
+   "type": "category_swap",
+   "target": "img_0169",
+   "reason": "box detection ghi lớp 'bus' nhưng segment panoptic ghi 'truck' (IoU bbox 0.82, 100% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
+  },
+  {
+   "type": "category_swap",
+   "target": "img_0226",
+   "reason": "box detection ghi lớp 'backpack' nhưng segment panoptic ghi 'suitcase' (IoU bbox 0.92, 99% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
+  },
+  {
+   "type": "category_swap",
+   "target": "img_0238",
+   "reason": "box detection ghi lớp 'bench' nhưng segment panoptic ghi 'chair' (IoU bbox 0.97, 100% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
+  },
+  {
+   "type": "category_swap",
+   "target": "img_0238",
+   "reason": "box detection ghi lớp 'couch' nhưng segment panoptic ghi 'chair' (IoU bbox 0.69, 99% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
+  },
+  {
+   "type": "missing_box",
+   "target": "img_0245",
+   "reason": "segment panoptic lớp 'toilet' diện tích 30816 px không có box detection nào phủ được"
+  }
+ ]
+}

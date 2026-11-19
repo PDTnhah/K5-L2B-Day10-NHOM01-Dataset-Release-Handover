@@ -1,0 +1,84 @@
+{
+ "candidates": [
+  {
+   "type": "missing_box",
+   "target": "000000001353",
+   "reason": "segment panoptic lớp 'train' diện tích 19447 px không có box detection nào phủ được"
+  },
+  {
+   "type": "missing_box",
+   "target": "000000001818",
+   "reason": "segment panoptic lớp 'zebra' diện tích 120106 px không có box detection nào phủ được"
+  },
+  {
+   "type": "instance_merge",
+   "target": "000000002157",
+   "reason": "segment panoptic lớp 'wine glass' phủ trọn 2 box detection cùng lớp và các box đó không chồng lên nhau; có thể hai vật cùng lớp bị gộp làm một"
+  },
+  {
+   "type": "category_swap",
+   "target": "000000003845",
+   "reason": "box detection ghi lớp 'carrot' nhưng segment panoptic ghi 'fork' (IoU bbox 0.98, 100% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
+  },
+  {
+   "type": "category_swap",
+   "target": "000000005586",
+   "reason": "box detection ghi lớp 'surfboard' nhưng segment panoptic ghi 'person' (IoU bbox 0.90, 100% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
+  },
+  {
+   "type": "category_swap",
+   "target": "000000006723",
+   "reason": "box detection ghi lớp 'truck' nhưng segment panoptic ghi 'bus' (IoU bbox 0.91, 99% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
+  },
+  {
+   "type": "category_swap",
+   "target": "000000009590",
+   "reason": "box detection ghi lớp 'cup' nhưng segment panoptic ghi 'bowl' (IoU bbox 0.92, 100% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
+  },
+  {
+   "type": "category_swap",
+   "target": "000000009914",
+   "reason": "box detection ghi lớp 'hot dog' nhưng segment panoptic ghi 'sandwich' (IoU bbox 0.81, 97% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
+  },
+  {
+   "type": "missing_box",
+   "target": "000000009914",
+   "reason": "segment panoptic lớp 'bowl' diện tích 33838 px không có box detection nào phủ được"
+  },
+  {
+   "type": "category_swap",
+   "target": "000000012639",
+   "reason": "box detection ghi lớp '80' nhưng segment panoptic ghi 'person' (IoU bbox 0.97, 100% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
+  },
+  {
+   "type": "category_swap",
+   "target": "000000013659",
+   "reason": "box detection ghi lớp 'tv' nhưng segment panoptic ghi 'laptop' (IoU bbox 0.99, 100% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
+  },
+  {
+   "type": "missing_box",
+   "target": "000000017379",
+   "reason": "segment panoptic lớp 'sink' diện tích 11161 px không có box detection nào phủ được"
+  },
+  {
+   "type": "category_swap",
+   "target": "000000018380",
+   "reason": "box detection ghi lớp 'cup' nhưng segment panoptic ghi 'wine glass' (IoU bbox 0.87, 100% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
+  },
+  {
+   "type": "category_swap",
+   "target": "000000020553",
+   "reason": "box detection ghi lớp 'bottle' nhưng segment panoptic ghi 'vase' (IoU bbox 0.77, 99% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
+  },
+  {
+   "type": "bbox_drift",
+   "target": "000000021167",
+   "reason": "box detection lớp 'wine glass' chồm lên segment cùng lớp (IoU bbox 0.51) nhưng chỉ chiếm 51% pixel của vật; box có thể lệch khỏi vật"
+  },
+  {
+   "type": "category_swap",
+   "target": "000000022479",
+   "reason": "box detection ghi lớp 'couch' nhưng segment panoptic ghi 'bench' (IoU bbox 0.97, 100% pixel segment nằm trong box); mở ảnh xem nguồn nào đúng: nếu detection sai thì là class_swap, nếu panoptic sai thì là category_swap"
+  }
+ ]
+}
