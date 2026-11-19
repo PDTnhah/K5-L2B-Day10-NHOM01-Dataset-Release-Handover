@@ -1,0 +1,44 @@
+{
+ "errors": [
+  {
+   "type": "missing_image",
+   "target": "000000000785"
+  },
+  {
+   "type": "missing_image",
+   "target": "000000021604"
+  },
+  {
+   "type": "wrong_hash",
+   "target": "000000006763"
+  },
+  {
+   "type": "invalid_class",
+   "target": "000000012639"
+  },
+  {
+   "type": "bbox_out_of_bounds",
+   "target": "000000012576"
+  },
+  {
+   "type": "duplicate_box",
+   "target": "000000006771"
+  },
+  {
+   "type": "scene_leak",
+   "target": "scene_278"
+  },
+  {
+   "type": "guideline_mismatch",
+   "target": "000000005992"
+  },
+  {
+   "type": "guideline_mismatch",
+   "target": "000000015956"
+  },
+  {
+   "type": "thing_overlap",
+   "target": "000000021879"
+  }
+ ]
+}
