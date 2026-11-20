@@ -1,11 +1,11 @@
 image,type,verdict,note
-21167,bbox_drift,confirmed,"Box detection của wine glass lệch so với segment panoptic. Khoảng 44% pixel segment nằm ngoài box, detection chưa bao phủ hết ly rượu."
-7278,bbox_drift,confirmed,"Box detection của person chưa bao phủ hết segment panoptic; khoảng 16% pixel nằm ngoài box. Box bị lệch so với đối tượng thực tế."
-13659,class_swap,confirmed,"Đối tượng trong ảnh bị gán nhầm lớp giữa laptop và TV."
-3845,class_swap,confirmed,"Đối tượng trong ảnh là carrot (cà rốt). Detection ghi carrot là đúng, panoptic ghi fork là sai do nhầm lớp."
-22479,class_swap,confirmed,"Detection ghi couch nhưng panoptic ghi bench. Hai vùng trùng khớp cao (IoU 0.97), nhưng detection sai nhãn lớp."
-5586,class_swap,confirmed,"Detection ghi surfboard nhưng panoptic ghi person".
-17379,instance_merge,confirmed,"Hai detection sink cùng trỏ vào một segment panoptic sink, tức hai box đang bị gộp vào cùng một đối tượng."
-1818,missing_box,confirmed,"Đối tượng trong ảnh không có bounding box detection tương ứng."
-9914,missing_box,confirmed,"Thiếu bounding box detection tương ứng với segment bowl trong panoptic."
-1353,missing_box,confirmed,"Panoptic có segment train nhưng detection không có box train tương ứng. Các box hiện tại chỉ nhận diện person, bỏ sót đối tượng tàu."
+000000021167,bbox_drift,confirmed,"Box detection của wine glass lệch so với segment panoptic. Khoảng 44% pixel segment nằm ngoài box, detection chưa bao phủ hết ly rượu."
+000000007278,bbox_drift,confirmed,Box detection của person chưa bao phủ hết segment panoptic; khoảng 16% pixel nằm ngoài box. Box bị lệch so với đối tượng thực tế.
+000000013659,class_swap,confirmed,Đối tượng trong ảnh bị gán nhầm lớp giữa laptop và TV.
+000000003845,class_swap,confirmed,"Đối tượng trong ảnh là carrot (cà rốt). Detection ghi carrot là đúng, panoptic ghi fork là sai do nhầm lớp."
+000000022479,class_swap,confirmed,"Detection ghi couch nhưng panoptic ghi bench. Hai vùng trùng khớp cao (IoU 0.97), nhưng detection sai nhãn lớp."
+000000005586,class_swap,confirmed,Detection ghi surfboard nhưng panoptic ghi person.
+000000017379,instance_merge,confirmed,"Hai detection sink cùng trỏ vào một segment panoptic sink, tức hai box đang bị gộp vào cùng một đối tượng."
+000000001818,missing_box,confirmed,Đối tượng trong ảnh không có bounding box detection tương ứng.
+000000009914,missing_box,confirmed,Thiếu bounding box detection tương ứng với segment bowl trong panoptic.
+000000001353,missing_box,confirmed,"Panoptic có segment train nhưng detection không có box train tương ứng. Các box hiện tại chỉ nhận diện person, bỏ sót đối tượng tàu."

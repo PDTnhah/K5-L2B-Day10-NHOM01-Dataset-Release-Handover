@@ -2,11 +2,11 @@
  "errors": [
   {
    "type": "bbox_drift",
-   "target": "21167"
+   "target": "000000007278"
   },
   {
    "type": "bbox_drift",
-   "target": "7278"
+   "target": "000000021167"
   },
   {
    "type": "bbox_out_of_bounds",
@@ -14,19 +14,19 @@
   },
   {
    "type": "class_swap",
-   "target": "13659"
+   "target": "000000003845"
   },
   {
    "type": "class_swap",
-   "target": "22479"
+   "target": "000000005586"
   },
   {
    "type": "class_swap",
-   "target": "3845"
+   "target": "000000013659"
   },
   {
    "type": "class_swap",
-   "target": "5586"
+   "target": "000000022479"
   },
   {
    "type": "duplicate_box",
@@ -42,7 +42,7 @@
   },
   {
    "type": "instance_merge",
-   "target": "17379"
+   "target": "000000017379"
   },
   {
    "type": "invalid_class",
@@ -50,15 +50,15 @@
   },
   {
    "type": "missing_box",
-   "target": "1353"
+   "target": "000000001353"
   },
   {
    "type": "missing_box",
-   "target": "1818"
+   "target": "000000001818"
   },
   {
    "type": "missing_box",
-   "target": "9914"
+   "target": "000000009914"
   },
   {
    "type": "missing_image",
