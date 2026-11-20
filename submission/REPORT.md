@@ -1,9 +1,25 @@
-# Báo cáo nhóm <<XX>>
+# Báo cáo nhóm 01
 
 ## 1. Số liệu luyện tập
-- F1 theo seed (rule / cross_check / overall): <<seed: ... / ... / ...>>
-- Số ứng viên trên lô sạch (`--no-faults`): <<...>>; hàng đợi trên seed luyện tập: <<... ảnh>>
-- Ngưỡng đã chọn và cách chọn (không dùng `_private`): <<...>>
+- **F1 theo seed** (rule / cross_check / overall, số làm tròn do `score_findings.py` in):
+
+  | Seed | Lỗi luật | Lỗi gán nhãn đã xác nhận | rule | cross_check | overall |
+  |---|---:|---:|---:|---:|---:|
+  | 1007 (luyện tập, có review) | 10 | 10 | ≈ 1.0 | ≈ 0.7 | ≈ 0.9 |
+  | 2007 (chỉ chạy validator luật, không review) | 11 | 0 | ≈ 1.0 | — | ≈ 0.7 |
+  | 5 `--no-faults` (lô sạch, 50 ảnh) | 0 | 0 | ≈ 1.0 | — | ≈ 1.0 |
+
+  Các seed khác đã thử khi viết validator luật (11, 23, 42, 77, 101, 1007 `--opaque`) đều có F1 lỗi luật 1.0, xem `prompts.md` mục 3.2.
+- **Số ứng viên trên lô sạch** (`--no-faults`, seed 5, 50 ảnh): **0** với `validator/crosscheck.py` và cũng **0** với `validate.py --candidates`.
+- **Hàng đợi trên seed luyện tập 1007:** **10 ứng viên trên 10 ảnh** (`crosscheck.py`: 2 `bbox_drift`, 4 lệch lớp, 1 `instance_merge`, 3 `missing_box`). Ngoài ra có 4 ảnh bị bỏ qua vì đã dính lỗi luật (mỗi ảnh mang nhiều nhất một lỗi). Cả 10 ảnh đều đã được xem, kết quả 10 `confirmed`, 0 `rejected`.
+- **Ngưỡng đã chọn và cách chọn** (không dùng `_private`): ngưỡng nằm trong `DEFAULTS` của `validator/crosscheck.py`. Nhóm chọn bằng số đo các cặp box–segment trên lô sạch (`--dump-pairs`), dựa vào pixel mask chứ không chỉ IoU bbox:
+  - `match_iou` 0.5: ghép box với segment.
+  - `drift_cov` 0.92 + `drift_min_out_px` 40: `bbox_drift` chỉ báo khi box bỏ sót pixel thật sự, không phải nhiễu viền.
+  - `missing_min_seg` 0.004 + `missing_cov` 0.6: `missing_box` chỉ xét segment thing đủ lớn mà không có box cùng lớp nào phủ.
+  - `merge_excl` 0.2 + `merge_max_cov` 0.97: `instance_merge`.
+  - `swap_iou` 0.6 / `swap_fill` 0.4: lệch lớp.
+
+  Với bộ ngưỡng này lô sạch ra 0 ứng viên, còn hàng đợi seed 1007 chỉ 10 ảnh, đủ nhỏ để cả nhóm xem hết. Đổi lại vẫn có lỗi gán nhãn bị sót (cross_check ≈ 0.7). Quá trình chỉnh ngưỡng của `validate.py --candidates` (lọc `isthing`, điều kiện kép cho `bbox_drift`, hai box không chồng nhau cho `instance_merge`) ghi ở `prompts.md` mục 2.3.
 
 ## 2. Vì sao báo hết ứng viên làm F1 giảm?
 
@@ -16,8 +32,11 @@
 | Lỗi luật được phát hiện | 10 |
 | Lỗi gán nhãn được xác nhận | 10 |
 | Tổng lỗi sau merge | 20 |
-| F1 tổng | ≈ 0.5 |
+| F1 tổng | ≈ 0.9 |
 | F1 lỗi luật | ≈ 1.0 |
+| F1 lỗi gán nhãn | ≈ 0.7 |
+
+Lô sạch (seed 5) cho thấy vì sao không thể báo hết ứng viên: khi tiêu chí còn lỏng, lô sạch (không có lỗi nào) vẫn sinh nhiều ứng viên. Ví dụ khi chưa lọc `isthing` có 168 ứng viên `missing_box` giả, khi chưa thêm điều kiện cho `instance_merge` còn 15 ứng viên, và chỉ dùng pixfrac cho `bbox_drift` thì có 29 cặp nghi lệch trên 50 ảnh sạch (xem `prompts.md` mục 2.3). Đó là lệch tự nhiên của COCO (vật bị che, crowd, polygon lệch), không phải lỗi. Báo hết thì mỗi ứng viên như vậy là một FP.
 
 **Kiểm tra lô sạch seed 5:**
 
@@ -56,4 +75,6 @@
 - **Tự đo (`score_findings.py`):** tier_a ≈ 1.0, tier_b ≈ 1.0, notify ≈ 1.0. Đề ẩn dùng cùng tiêu chí (lớp `truck`, scene_100 và scene_777).
 
 ## 6. Bug hoặc điểm chưa rõ trong lab (nếu có)
-<<>>
+Không thấy bug trong `scripts/` ở các lệnh nhóm đã chạy. Có hai điểm dễ sai về quy trình khi nhiều người làm trên nhiều máy:
+- **`export_submission.py --run` ghi đè `submission/lineage.jsonl`** bằng `runs/lineage.jsonl` của máy đang chạy. `runs/` không được commit, nên nếu chạy lệnh này trên máy chưa ghi HOLD và release v2 vào lineage thì H14 sẽ FAIL. Nhóm chỉ export từ máy đã làm Pha 3–4.
+- **`.sha256` phải tạo lại sau mọi lần sửa trong v2.** Nhóm từng sửa một file trong v2 sau khi chạy `pack_release.py`, khiến H15 FAIL; đã chạy lại `pack_release.py` để sửa. GUIDE có nhắc điều này nhưng dễ quên khi sửa README.txt vào phút cuối.

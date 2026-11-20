@@ -2,8 +2,8 @@
 
 > Trả lời gắn với lô bạn vừa bàn giao, không chép slide. Mỗi mục vài câu.
 
-Lô: `runs/r1007` — `release_id lab250_fd90ed6d0b9f`, 250 ảnh COCO val2017 (250 ảnh, mỗi ảnh
-mang nhiều nhất một lỗi, 10 lỗi luật đã bắt được ở Pha 1).
+Lô: `runs/r1007` — v1 `lab250_fd90ed6d0b9f` (250 ảnh COCO val2017, QC v1 20/250 lỗi, Hold),
+v2 `lab250_fd90ed6d0b9f_v2` (236 ảnh, đã đóng gói).
 
 ## 1. Ca USB: hết giờ, muốn chép lô về nhà làm tiếp
 Không chép lô (cả file ảnh, nhãn, mask) qua USB hay bất kỳ thiết bị lưu trữ
@@ -36,14 +36,17 @@ Việc nhóm làm: đã rà lô và xác nhận lô có ảnh mặt người nh�
 - `000000009448` — mặt người rõ, người đứng gần camera
 - `000000020992` — mặt người rõ
 
-Trạng thái lô: lô chưa được xử lý làm mờ khuôn mặt. Vì vậy lô đang ở trạng
-thái Hold, và nhóm không đóng gói bàn giao (`pack_release.py`) cho tới khi xử lý
-xong.
+Trạng thái lô: cả 4 ảnh trên đều nằm trong v2 (`lab250_fd90ed6d0b9f_v2`) và chưa được
+làm mờ. Guideline của lô bài lab (`guideline/changelog.md`, v1.2 và v1.3) không có quy định
+làm mờ, nên README v2 ghi "Kết luận v2: Release" là kết luận về chất lượng nhãn detection
+(QC). Trong ca này guideline **yêu cầu** làm mờ, nên kết luận phải là **Hold**: dừng gửi
+v2 cho team AI cho tới khi người phụ trách quyết định. Nhóm không tự sửa ảnh trong v2
+đã đóng gói (sửa thì mã `.sha256` không còn khớp).
 
-Báo ai: báo giảng viên/coach phụ trách (người quyết định mức xử lý) và ghi
-trong `runs/r1007/security.md` cùng phần Ghi chú của `README.txt` ở lô v2. Lý do phải
-báo: quyền quyết định làm mỹ/xoá ảnh thuộc về chủ sở hữu dữ liệu và người chịu
-trách nhiệm phê duyệt bàn giao; đội dữ liệu không tự ý xoá ảnh.
+Báo ai: báo người phụ trách lô / chủ sở hữu dữ liệu (trong bài lab là giảng viên/coach)
+bằng văn bản, kèm danh sách 4 ảnh trên và trạng thái Hold. Lý do phải báo: quyền quyết định
+làm mờ/xoá ảnh thuộc về chủ sở hữu dữ liệu và người chịu trách nhiệm phê duyệt bàn giao;
+đội dữ liệu không tự ý làm mờ hay xoá ảnh.
 
 Vì sao không tự làm mờ hay xoá ảnh:
 1. Xoá ảnh trong `delivery/` là sửa lô v1, vi phạm quy tắc "không sửa `delivery/`;
@@ -58,9 +61,8 @@ Vì sao không tự làm mờ hay xoá ảnh:
 4. Nội dung cụ thể: guideline/changelog của lô quy định khi nào vẫn phải gán box
    cho vật bị che; làm mờ mặt có thể làm ảnh rơi vào trường hợp đó và làm sai nhãn.
 
-Phương án nhóm đề xuất: giữ nguyên `delivery/` (không đụng), tạo lô v2 trong
-`runs/r1007/handover/<release_id>_v2/`; nếu giảng viên yêu cầu xoá ảnh có mặt thì xoá
-ở v2 và ghi rõ danh sách ảnh bị loại vào `README.txt` + `Ghi chú`, để số liệu QC v1
-vẫn truy vết được.
-
-(Phần dưới để nhóm điền thêm nếu có phát hiện cụ thể khác.)
+Phương án nhóm đề xuất: giữ nguyên v1 (`delivery/`) và v2 đã đóng gói. Nếu người phụ
+trách yêu cầu làm mờ hoặc loại ảnh có mặt, thì làm ở một bản mới (v3, `--parent` là v2
+trong lineage) bằng công cụ được duyệt, ghi danh sách ảnh đã xử lý vào phần Ghi chú của
+`README.txt`, lập lại `manifest.csv` và chạy lại `pack_release.py`. Như vậy số liệu QC
+v1 và v2 vẫn truy vết được.

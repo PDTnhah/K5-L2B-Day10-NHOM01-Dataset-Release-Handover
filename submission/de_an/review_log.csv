@@ -1,3 +1,24 @@
 image,type,verdict,note
-img_0006, missing_box, reject,...
-img_0028, duplicate_box, rejcet,
+img_0006,class_swap,confirmed,"Nhầm lớp, đối tượng trong ảnh là bus"
+img_0036,class_swap,confirmed,"Trong ảnh là couch, gán sai lớp ""bed"""
+img_0045,class_swap,confirmed,"Lỗi gán sai lớp, đối tượng trong ảnh là handbag"
+img_0053,bbox_drift,confirmed,box 'apple' chồm lên segment cùng lớp
+img_0061,class_swap,confirmed,"Nhầm lớp, cake thành donut"
+img_0062,class_swap,confirmed,Nhầm car thành truck
+img_0063,class_swap,rejected,Nhầm class hông hợp lệ
+img_0079,missing_box,confirmed,Thiếu detection cho cat
+img_0086,class_swap,confirmed,"detection ghi 'chair', panoptic ghi 'dining table'"
+img_0106,class_swap,rejected,"detection ghi 'cat', panoptic ghi 'dog'"
+img_0107,bbox_drift,confirmed,box 'person' chồm lên segment cùng lớp
+img_0115,class_swap,confirmed,"detection ghi 'cup', panoptic ghi 'bowl'"
+img_0120,class_swap,confirmed,"detection ghi 'backpack', panoptic ghi 'handbag'"
+img_0131,class_swap,confirmed,"detection ghi 'truck', panoptic ghi 'car'"
+img_0145,class_swap,confirmed,"detection ghi 'couch', panoptic ghi 'chair'"
+img_0146,class_swap,confirmed,"detection ghi 'truck', panoptic ghi 'car'"
+img_0163,instance_merge,confirmed,segment 'person' phủ 2 box cùng lớp tách rời nhau
+img_0169,class_swap,confirmed,Nhầm lớp bus vs truck
+img_0171,instance_merge,confirmed,segment backpack phủ 2 box cùng lớp; 76% box thứ hai chỉ có pixel của segment này
+img_0178,bbox_drift,confirmed,bbox cho car đang không phủ hết
+img_0226,class_swap,confirmed,"Nhầm lớp, suitcase nhầm thành backpack"
+img_0238,class_swap,confirmed,"Sai lớp, chair bị nhầm thành couch"
+img_0245,missing_box,confirmed,Thiếu detection toilet
