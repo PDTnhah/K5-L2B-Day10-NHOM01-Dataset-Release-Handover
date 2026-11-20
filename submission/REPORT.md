@@ -29,7 +29,10 @@
 **Kết luận:** Không nên tối đa hóa số lượng ứng viên được báo cáo. Cần ưu tiên độ chính xác, hạn chế báo nhầm và bỏ sót lỗi. Mỗi ứng viên cần được kiểm chứng trước khi đưa vào kết quả cuối cùng.
 
 ## 3. Quyết định và lineage
-<<QC v1 a/b, kết luận, vì sao R-021 phải xem lại hoặc train lại.>>
+- QC v1: Có 20 lỗi trên 250 ảnh, tương ứng tỷ lệ lỗi 8%, vượt ngưỡng cho phép 2%.
+- Kết luận: HOLD, chưa đủ điều kiện Release dataset v1.
+- Lineage: Run `R-021` bị ảnh hưởng (`affected=True`, `action=review_or_retrain`).
+- Lý do: R-021 đã được huấn luyện trên dữ liệu thuộc release bị ảnh hưởng. Việc sửa dataset không tự động sửa các trọng số model đã học, vì vậy cần đánh giá lại hoặc huấn luyện lại model bằng dữ liệu đã được kiểm tra và sửa lỗi.
 
 ## 4. Hash chứng minh gì, không chứng minh gì?
 <<>>
